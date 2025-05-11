@@ -1,0 +1,20 @@
+package com.fernanda.cotizacionapp.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+@Entity
+public class Cotizacion {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String cliente;
+    private String producto;
+    private int cantidad;
+
+    // Getters y Setters (puedes generarlos con clic derecho → Generate → Getter/Setter)
+}

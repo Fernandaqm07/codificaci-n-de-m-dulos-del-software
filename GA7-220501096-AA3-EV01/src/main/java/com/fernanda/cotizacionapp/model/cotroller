@@ -1,0 +1,31 @@
+package com.fernanda.cotizacionapp.controller;
+
+import com.fernanda.cotizacionapp.model.Cotizacion;
+import com.fernanda.cotizacionapp.service.CotizacionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@RestController
+@RequestMapping("/api/cotizaciones")
+public class CotizacionController {
+
+    @Autowired
+    private CotizacionService service;
+
+    @GetMapping
+    public List<Cotizacion> obtenerTodo() {
+        return service.listar();
+    }
+
+    @PostMapping
+    public Cotizacion guardar(@RequestBody Cotizacion cotizacion) {
+        return service.guardar(cotizacion);
+    }
+}
+@GetMapping("/api/cotizaciones")
+public List<Cotizacion> obtenerCotizaciones() {
+    return cotizacionRepository.findAll();
+}

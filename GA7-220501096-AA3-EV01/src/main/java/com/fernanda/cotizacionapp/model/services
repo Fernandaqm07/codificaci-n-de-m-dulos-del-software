@@ -1,0 +1,23 @@
+package com.fernanda.cotizacionapp.service;
+
+import com.fernanda.cotizacionapp.model.Cotizacion;
+import com.fernanda.cotizacionapp.repository.CotizacionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CotizacionService {
+
+    @Autowired
+    private CotizacionRepository repository;
+
+    public List<Cotizacion> listar() {
+        return repository.findAll();
+    }
+
+    public Cotizacion guardar(Cotizacion c) {
+        return repository.save(c);
+    }
+}
